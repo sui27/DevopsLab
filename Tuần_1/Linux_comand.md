@@ -1,4 +1,4 @@
-# 🐧 TỔNG HỢP LỆNH CƠ BẢN TRONG LINUX (CÓ GIẢI THÍCH & OPTION HAY DÙNG)
+# 🐧 TỔNG HỢP LỆNH CƠ BẢN TRONG LINUX & OPTION HAY DÙNG
 
 ---
 
@@ -63,7 +63,7 @@
 
 ---
 
-## 3. Xem nội dung file
+## 3. Xem và sửa file
 
 ### 3.1. Lệnh `cat`
 - **Mô tả:** Hiển thị nội dung file, dùng cho file nhỏ.
@@ -90,8 +90,25 @@
 | `-n`     | Chỉ định số dòng hiển thị |
 | `-f`     | Theo dõi file realtime (log file) |
 
----
+### 3.5. Lệnh `vi`
+- **Mô tả:** Trình chỉnh sửa văn bản mạnh mẽ trên terminal.
+- **Cấu trúc:** `vi [file]`
+- **Chế độ:**
+  - `Esc`: chuyển sang chế độ lệnh
+  - `i`: chế độ insert (chỉnh sửa)
+  - `:w`: lưu file
+  - `:q`: thoát
+  - `:wq`: lưu và thoát
+  - `:q!`: thoát mà không lưu
 
+### 3.6. Lệnh `nano`
+- **Mô tả:** Trình soạn thảo văn bản đơn giản và dễ dùng trong terminal.
+- **Cấu trúc:** `nano [file]`
+- **Phím tắt thường dùng:**
+  - `Ctrl + O`: lưu file
+  - `Ctrl + X`: thoát
+  - `Ctrl + K`: cắt dòng
+  - `Ctrl + U`: dán dòng
 ## 4. Sao chép, di chuyển file
 
 ### 4.1. Lệnh `cp`
@@ -163,4 +180,32 @@
 | `service apache2 start`  | Bắt đầu apache2 |
 | `service apache2 restart`| Khởi động lại |
 | `service apache2 status` | Xem trạng thái |
+
+---
+
+## 8. Phân quyền và quyền truy cập
+
+### 8.1. Lệnh `chmod`
+- **Mô tả:** Thay đổi quyền truy cập file/thư mục.
+- **Cấu trúc:** `chmod [tùy chọn] quyền file`
+- Cách đặt quyền (dạng số): `r=4`, `w=2`, `x=1`
+  - Ví dụ: `chmod 755 file.sh` → chủ sở hữu full, nhóm & others chỉ đọc + chạy
+
+| Tùy chọn | Mô tả |
+|----------|------|
+| `-R`     | Áp dụng đệ quy với thư mục con |
+
+### 8.2. Lệnh `sudo`
+- **Mô tả:** Thực thi lệnh với quyền `superuser`
+- **Cấu trúc:** `sudo [lệnh]`
+- Ví dụ:
+```bash
+sudo apt update
+sudo systemctl restart nginx
+```
+
+### 8.3. Truy cập root (nếu cần)
+- **Lệnh:** `sudo -i` hoặc `su`
+- `sudo -i`: mở shell với quyền root (nếu có quyền sudo)
+- `su`: đăng nhập user root (yêu cầu biết mật khẩu root)
 
