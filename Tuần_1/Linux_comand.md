@@ -151,11 +151,34 @@
 ## 6. Lên lịch tự động
 
 ### 6.1. Lệnh `crontab`
-- **Mô tả:** Thiết lập lịch tự động chạy script.
+- **Mô tả:** Thiết lập lịch tự động chạy script định kỳ với định dạng linh hoạt theo phút, giờ, ngày, tháng, thứ trong tuần.
 - **Cấu trúc:** `crontab -e`
-- Ví dụ:
+
+- **Cú pháp cron:**
+```
+*     *     *     *     *     lệnh
+-     -     -     -     -
+|     |     |     |     |
+|     |     |     |     +----- Thứ (0 = CN, 1 = T2, ..., 6 = T7)
+|     |     |     +----------- Tháng (1 - 12)
+|     |     +--------------- Ngày trong tháng (1 - 31)
+|     +------------------- Giờ (0 - 23)
++----------------------- Phút (0 - 59)
+```
+
+- **Ví dụ cụ thể:**
 ```bash
-0 1 * * * /home/user/script.sh   # Chạy lúc 1h sáng mỗi ngày
+0 1 * * * /home/user/script.sh   # Chạy lúc 01:00 AM mỗi ngày
+30 7 * * 1 /home/user/weekly.sh  # Chạy 07:30 sáng mỗi thứ Hai
+*/15 * * * * /home/user/ping.sh  # Chạy mỗi 15 phút
+```
+- **Xem danh sách cronjobs hiện có:**
+```bash
+crontab -l
+```
+- **Xóa toàn bộ cronjobs:**
+```bash
+crontab -r
 ```
 
 ---
