@@ -71,31 +71,83 @@ git log
 
 ---
 
-## 4. Làm việc với nhánh (branch)
+## 4. Làm việc với nhánh (branch) trong Git
 
 ### 4.1. Xem các nhánh hiện có
 ```bash
 git branch
 ```
+Hiển thị danh sách các nhánh cục bộ. Nhánh đang active có dấu `*`.
 
-### 4.2. Tạo nhánh mới
+---
+
+### 4.2. Tạo nhánh mới (chỉ tạo, không chuyển)
 ```bash
 git branch ten-nhanh
 ```
+- Tạo nhánh mới từ commit hiện tại.
+- Không tự động chuyển sang nhánh đó.
+- **Code trong thư mục không thay đổi.**
+
+📌 Ví dụ:
+```bash
+git branch feature/login
+```
+
+---
 
 ### 4.3. Chuyển sang nhánh khác
 ```bash
 git checkout ten-nhanh
 ```
+- Chuyển sang nhánh đã tồn tại.
+- **Code trong thư mục sẽ thay đổi theo nhánh mới.**
 
-### 4.4. Tạo + chuyển nhánh 1 lần
+📌 Ví dụ:
+```bash
+git checkout feature/login
+```
+
+---
+
+### 4.4. Tạo mới + chuyển nhánh trong 1 lệnh
 ```bash
 git checkout -b ten-nhanh
 ```
+- Tạo mới nhánh từ commit hiện tại.
+- Tự động chuyển sang nhánh đó luôn.
+- **Code có thể thay đổi nếu bạn tiếp tục commit ở nhánh mới.**
+
+📌 Ví dụ:
+```bash
+git checkout -b feature/signup
+```
+
+---
 
 ### 4.5. Xóa nhánh
 ```bash
 git branch -d ten-nhanh
+```
+- Xóa nhánh cục bộ (nếu đã merge).
+- Dùng `-D` để xóa cưỡng chế nếu chưa merge.
+
+📌 Ví dụ:
+```bash
+git branch -d feature/login
+git branch -D feature/bugfix
+```
+
+---
+
+### 🧠 So sánh nhanh `branch` vs `checkout`
+
+| Lệnh                        | Tác dụng                           | Có thay đổi code? |
+|-----------------------------|------------------------------------|-------------------|
+| `git branch ten-nhanh`      | Tạo nhánh, KHÔNG chuyển            | ❌ Không          |
+| `git checkout ten-nhanh`    | Chuyển sang nhánh đã có            | ✅ Có             |
+| `git checkout -b ten-nhanh` | Tạo + chuyển sang nhánh mới luôn   | ✅ Có             |
+
 ```
 👉 Nếu chưa merge, dùng `-D` để ép xóa:
 ```bash
