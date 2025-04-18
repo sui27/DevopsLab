@@ -237,3 +237,29 @@ sudo systemctl restart nginx
 - `sudo -i`: mở shell với quyền root (nếu có quyền sudo)
 - `su`: đăng nhập user root (yêu cầu biết mật khẩu root)
 
+  
+## 9 Lệnh `df` trong Linux – Kiểm tra dung lượng ổ đĩa
+
+## 🔍 Mục đích
+`df` (disk filesystem) dùng để kiểm tra **dung lượng sử dụng và còn trống** của các phân vùng trên hệ thống Linux.
+
+---
+
+## ✅ Cú pháp cơ bản
+
+```bash
+df [TÙY_CHỌN] [ĐƯỜNG_DẪN]
+```
+Option | Ý nghĩa
+-h | Hiển thị theo dạng "human-readable" (dễ đọc – MB, GB, thay vì block)
+-H | Giống -h nhưng dùng đơn vị 1000 thay vì 1024
+-T | Hiển thị thêm loại filesystem (ext4, tmpfs, xfs,...)
+-a | Hiển thị tất cả filesystem, kể cả những cái dung lượng = 0
+-i | Hiển thị thông tin inode thay vì dung lượng
+--total | Thêm dòng tổng dung lượng cuối danh sách
+
+### Ví dụ
+```bash
+  df - h /
+```
+ - kiểm tra dung lương thư mục /
