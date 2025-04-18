@@ -213,6 +213,11 @@ crontab -r
 - **Cấu trúc:** `chmod [tùy chọn] quyền file`
 - Cách đặt quyền (dạng số): `r=4`, `w=2`, `x=1`
   - Ví dụ: `chmod 755 file.sh` → chủ sở hữu full, nhóm & others chỉ đọc + chạy
+- Cách thêm quyền (dạng chữ):
+   - chmod +x file       # Thêm quyền thực thi cho tất cả
+   - chmod u+x file      # Thêm quyền thực thi cho user (chủ sở hữu)
+   - chmod g-w file      # Gỡ quyền ghi của group
+   - chmod o=r file      # Đặt quyền read duy nhất cho others
 
 | Tùy chọn | Mô tả |
 |----------|------|
