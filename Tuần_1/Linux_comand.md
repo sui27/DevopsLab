@@ -251,12 +251,13 @@ sudo systemctl restart nginx
 df [TÙY_CHỌN] [ĐƯỜNG_DẪN]
 ```
 Option | Ý nghĩa
--h | Hiển thị theo dạng "human-readable" (dễ đọc – MB, GB, thay vì block)
--H | Giống -h nhưng dùng đơn vị 1000 thay vì 1024
--T | Hiển thị thêm loại filesystem (ext4, tmpfs, xfs,...)
--a | Hiển thị tất cả filesystem, kể cả những cái dung lượng = 0
--i | Hiển thị thông tin inode thay vì dung lượng
---total | Thêm dòng tổng dung lượng cuối danh sách
+|------|--------|
+|-h | Hiển thị theo dạng "human-readable" (dễ đọc – MB, GB, thay vì block)|
+|-H | Giống -h nhưng dùng đơn vị 1000 thay vì 1024|
+|-T | Hiển thị thêm loại filesystem (ext4, tmpfs, xfs,...)|
+|-a | Hiển thị tất cả filesystem, kể cả những cái dung lượng = 0|
+|-i | Hiển thị thông tin inode thay vì dung lượng|
+|--total | Thêm dòng tổng dung lượng cuối danh sách|
 
 ### Ví dụ
 ```bash
